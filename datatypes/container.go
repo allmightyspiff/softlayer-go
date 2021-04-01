@@ -2882,7 +2882,7 @@ type Container_Network_Media_Transcode_Preset_Element_Option struct {
 	Value *string `json:"value,omitempty" xmlrpc:"value,omitempty"`
 }
 
-// no documentation yet
+// This datatype is deprecated and will be removed in API version 3.2.
 type Container_Network_Message_Delivery_Email struct {
 	Entity
 
@@ -4321,6 +4321,9 @@ type Container_Product_Order_Network_Protection_Firewall_Dedicated_Upgrade struc
 // This is the datatype that needs to be populated and sent to SoftLayer_Product_Order::placeOrder. This datatype has everything required to place an order for Storage as a Service.
 type Container_Product_Order_Network_Storage_AsAService struct {
 	Container_Product_Order
+
+	// Optional property to specify provisioning to a dedicated cluster at order time. The `id` property of the [[SoftLayer_Network_Storage_DedicatedCluster]] should be provided to dictate where to provision storage to. Note your account must be enabled to order into the desired location(s) prior to placing the order.
+	DedicatedCluster *Network_Storage_DedicatedCluster `json:"dedicatedCluster,omitempty" xmlrpc:"dedicatedCluster,omitempty"`
 
 	// This must be populated only for duplicating a specific snapshot for volume duplicating. It represents the identifier of the origin [[SoftLayer_Network_Storage_Snapshot]]
 	DuplicateOriginSnapshotId *int `json:"duplicateOriginSnapshotId,omitempty" xmlrpc:"duplicateOriginSnapshotId,omitempty"`
